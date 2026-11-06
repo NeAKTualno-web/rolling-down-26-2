@@ -3,7 +3,7 @@
 	"id": "rolling_down_in_the_deep",
 	"version": "${version}",
 	"name": "Rolling Down in the Deep",
-	"description": "An addon to Do A Barrel Roll to extend its features to swimming and diving.",
+	"description": "An addon to Do A Barrel Roll to extend its features to swimming and diving. (Unofficial port to Minecraft 26.2)",
 	"authors": [
 		"enjarai"
 	],
@@ -14,7 +14,7 @@
 	},
 	"license": "MIT",
 	"icon": "assets/rolling_down_in_the_deep/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 		"client": [
 			"dev.enjarai.rollingdowninthedeep.RollingDownInTheDeep"
@@ -27,16 +27,21 @@
 		]
 	},
 	"mixins": [
-		"rolling_down_in_the_deep.mixins.json"
+		{
+			"config": "rolling_down_in_the_deep.mixins.json",
+			"environment": "client"
+		}
 	],
 	"suggests": {
 		"yet_another_config_lib_v3": ">=3.1.0"
 	},
 	"depends": {
-		"minecraft": "1.21.x",
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~26.2",
+		"java": ">=25",
 		"fabric-api": "*",
-		"do_a_barrel_roll": ">=3.6.0",
-		"cicada": ">=0.8.0 <1.0.0"
+		"do_a_barrel_roll": ">=3.8.4",
+		"cicada": ">=0.15.0"
 	},
 	"breaks": {
 		"optifabric": "*"

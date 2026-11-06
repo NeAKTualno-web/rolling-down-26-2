@@ -1,13 +1,13 @@
 {
   "required": true,
   "package": "dev.enjarai.rollingdowninthedeep.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "client": [
-    "ClientPlayerEntityMixin",
+    "AvatarRendererMixin",
     "EntityMixin",
     "LivingEntityMixin",
-    "PlayerEntityMixin",
-    "PlayerEntityRendererMixin"
+    "LocalPlayerMixin",
+    "PlayerMixin"
   ],
   "mixins": [],
   "injectors": {
