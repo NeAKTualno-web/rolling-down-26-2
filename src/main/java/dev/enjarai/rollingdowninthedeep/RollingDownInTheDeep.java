@@ -12,6 +12,7 @@ import nl.enjarai.cicada.api.util.ProperLogger;
 import nl.enjarai.doabarrelroll.api.RollEntity;
 import nl.enjarai.doabarrelroll.api.event.RollEvents;
 import nl.enjarai.doabarrelroll.api.event.RollGroup;
+import nl.enjarai.doabarrelroll.config.ModConfig;
 import nl.enjarai.doabarrelroll.flight.RotationModifiers;
 import nl.enjarai.doabarrelroll.math.MagicNumbers;
 import org.joml.Matrix3d;
@@ -90,7 +91,8 @@ public class RollingDownInTheDeep implements ClientModInitializer {
     }
 
     public static boolean enabled() {
-        return SwimConfig.INSTANCE.enabled;
+        // The addon is also off whenever Do a Barrel Roll itself is disabled
+        return SwimConfig.INSTANCE.enabled && ModConfig.INSTANCE.getModEnabled();
     }
 
     public static Identifier id(String path) {

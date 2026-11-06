@@ -37,6 +37,10 @@ public class CameraModifiers {
             pitch = -pitch;
         }
 
+        pitch *= SwimConfig.INSTANCE.mouseSensitivityPitch;
+        yaw *= SwimConfig.INSTANCE.mouseSensitivityYaw;
+        roll *= SwimConfig.INSTANCE.mouseSensitivityRoll;
+
         return RotationInstant.of(pitch, yaw, roll);
     }
 }

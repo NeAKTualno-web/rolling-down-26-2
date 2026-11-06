@@ -33,7 +33,7 @@ public class StrafeRollModifiers {
             speedMult = 1.0;
         }
 
-        double velocityStrength = 50 * speedMult;
+        double velocityStrength = 50 * speedMult * SwimConfig.INSTANCE.keyTurnSensitivity;
 
         if (options.keyLeft.isDown() && !options.keyRight.isDown()) {
             rollDelta = -SwimConfig.INSTANCE.strafeRollStrength;
