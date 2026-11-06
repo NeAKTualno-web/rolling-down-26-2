@@ -23,9 +23,14 @@ public abstract class EntityMixin {
         if (SwimConfig.INSTANCE.persistentSwimming) {
             // Override a client-side check that would usually send a packet to
             // stop the player from being in swim mode without sprinting.
-            return instance instanceof LocalPlayer &&
-                    RollingDownInTheDeep.enabled() ||
-                    original.call(instance);
+            // Once the player touches the bottom, vanilla takes over again so they can
+            // walk there normally (unless they are actively sprint-swimming).
+            if (instance instanceof LocalPlayer
+                    && RollingDownInTheDeep.enabled()
+                    && !(SwimConfig.INSTANCE.standOnBottom && instance.onGround())) {
+                return true;
+            }
+            return original.call(instance);
         } else {
             return original.call(instance);
         }

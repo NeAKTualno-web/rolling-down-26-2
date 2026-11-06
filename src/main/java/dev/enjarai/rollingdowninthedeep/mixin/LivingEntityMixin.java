@@ -2,6 +2,7 @@ package dev.enjarai.rollingdowninthedeep.mixin;
 
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import dev.enjarai.rollingdowninthedeep.RollingDownInTheDeep;
+import dev.enjarai.rollingdowninthedeep.config.SwimConfig;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.Holder;
 import net.minecraft.tags.TagKey;
@@ -70,6 +71,14 @@ public abstract class LivingEntityMixin extends Entity {
 
         if (this.hasEffect(MobEffects.DOLPHINS_GRACE)) {
             slowDown = 0.96F;
+        }
+
+        if (SwimConfig.INSTANCE.applySpeedEffects) {
+            // Speed/Slowness effects, beacons and attribute modifiers scale the swim speed.
+            // The sprint bonus is divided out, as persistent swimming keeps us sprinting.
+            double base = this.isSprinting() ? 0.13 : 0.1;
+            double factor = this.getAttributeValue(Attributes.MOVEMENT_SPEED) / base;
+            speed *= (float) Math.clamp(factor, 0.25, 4.0);
         }
 
         Vector3f velocity = RollingDownInTheDeep.movementInputToVelocity(
