@@ -25,6 +25,7 @@ jobs:
           cp build/libs/*.jar /tmp/out/ 2>/dev/null
           rm -f /tmp/out/*-sources.jar
           ls -la /tmp/out
+          bash tools/verify.sh > /tmp/out/verify.txt 2>&1
       - name: publish output
         if: always()
         run: |
