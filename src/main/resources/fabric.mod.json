@@ -8,9 +8,9 @@
 		"enjarai"
 	],
 	"contact": {
-		"homepage": "https://enjarai.dev/",
-		"sources": "https://github.com/enjarai/rolling-down-in-the-deep",
-		"issues": "https://github.com/enjarai/rolling-down-in-the-deep/issues"
+		"homepage": "https://github.com/NeAKTualno-web/rolling-down-26-2",
+		"sources": "https://github.com/NeAKTualno-web/rolling-down-26-2/tree/port",
+		"issues": "https://github.com/NeAKTualno-web/rolling-down-26-2/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/rolling_down_in_the_deep/icon.png",
