@@ -1,5 +1,6 @@
 package dev.enjarai.rollingdowninthedeep.mixin;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import dev.enjarai.rollingdowninthedeep.RollingDownInTheDeep;
 import net.minecraft.client.player.LocalPlayer;
@@ -17,5 +18,15 @@ public abstract class PlayerMixin {
     )
     private boolean rollingDownInTheDeep$nullifySwimVelocity(Player instance, Vec3 vec) {
         return !(instance instanceof LocalPlayer && RollingDownInTheDeep.shouldRoll());
+    }
+
+    /// Disable ledge grabbing
+    @SuppressWarnings("ConstantValue")
+    @ModifyExpressionValue(
+            method = "maybeBackOffFromEdge",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;isStayingOnGroundSurface()Z")
+    )
+    private boolean rollingDownInTheDeep$disableLedgeGrabbing(boolean original) {
+        return (!((Object) this instanceof LocalPlayer) || !RollingDownInTheDeep.shouldRoll()) && original;
     }
 }
