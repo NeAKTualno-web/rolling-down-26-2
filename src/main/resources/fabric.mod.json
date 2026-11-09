@@ -3,7 +3,7 @@
 	"id": "rolling_down_in_the_deep",
 	"version": "${version}",
 	"name": "Rolling Down in the Deep",
-	"description": "An addon to Do A Barrel Roll to extend its features to swimming and diving. (Unofficial port to Minecraft 26.2)",
+	"description": "An addon to Do A Barrel Roll to extend its features to swimming and diving. (Unofficial port to Minecraft 26.3)",
 	"authors": [
 		"enjarai"
 	],
@@ -37,7 +37,7 @@
 	},
 	"depends": {
 		"fabricloader": ">=0.19.0",
-		"minecraft": "~26.2",
+		"minecraft": "~26.3",
 		"java": ">=25",
 		"fabric-api": "*",
 		"do_a_barrel_roll": ">=3.8.4",
