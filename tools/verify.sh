@@ -27,3 +27,7 @@ echo; echo "### InputConstants key O"; jp com.mojang.blaze3d.platform.InputConst
 echo; echo "### PoseStack.mulPose"; jp com.mojang.blaze3d.vertex.PoseStack | grep -E 'mulPose'
 echo; echo "### Minecraft screen methods"; jp net.minecraft.client.Minecraft | grep -E 'Screen' | head -10
 echo; echo "### ConfirmLinkScreen"; jp net.minecraft.client.gui.screens.ConfirmLinkScreen | grep -E 'public|static' | head -12
+
+echo; echo "### net.minecraft.util.Util OS"; jp 'net.minecraft.util.Util$OS' | head -40
+echo; echo "### ConfirmLinkScreen statics"; jp net.minecraft.client.gui.screens.ConfirmLinkScreen | grep -E 'static' | grep -v 'invoke' | head
+echo; echo "### classes named *OS* or opening URIs"; unzip -l $(echo "$CP" | cut -d: -f1) | awk '{print $4}' | grep -E 'util/(Util|OpenUri|Platform|PlatformUtil)|/Os|/OS' | head
