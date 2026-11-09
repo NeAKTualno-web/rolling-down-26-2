@@ -44,3 +44,5 @@ for n in z.namelist():
             hits.append(n)
 print("\n".join(hits[:40]))
 PY
+echo; echo "### openUri signatures"
+for c in net.minecraft.client.gui.Gui net.minecraft.client.gui.screens.Screen com.mojang.blaze3d.Blaze3D net.minecraft.client.gui.screens.ConfirmLinkScreen; do echo "-- $c"; jp "$c" | grep -i -E 'open(Uri|Url|URI)' | grep -v -E '^ +[0-9]+:' ; done
