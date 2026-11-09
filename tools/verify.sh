@@ -31,3 +31,16 @@ echo; echo "### ConfirmLinkScreen"; jp net.minecraft.client.gui.screens.ConfirmL
 echo; echo "### net.minecraft.util.Util OS"; jp 'net.minecraft.util.Util$OS' | head -40
 echo; echo "### ConfirmLinkScreen statics"; jp net.minecraft.client.gui.screens.ConfirmLinkScreen | grep -E 'static' | grep -v 'invoke' | head
 echo; echo "### classes named *OS* or opening URIs"; unzip -l $(echo "$CP" | cut -d: -f1) | awk '{print $4}' | grep -E 'util/(Util|OpenUri|Platform|PlatformUtil)|/Os|/OS' | head
+
+echo; echo "### classes containing openUri/openUrl"
+python3 - "$(echo "$CP" | cut -d: -f1)" <<'PY'
+import sys, zipfile
+z = zipfile.ZipFile(sys.argv[1])
+hits = []
+for n in z.namelist():
+    if n.endswith('.class'):
+        b = z.read(n)
+        if b'openUri' in b or b'openUrl' in b or b'openURI' in b:
+            hits.append(n)
+print("\n".join(hits[:40]))
+PY
