@@ -6,14 +6,13 @@ import dev.enjarai.rollingdowninthedeep.config.SwimConfigScreen;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import org.lwjgl.glfw.GLFW;
 
 public class SwimKeybindings {
     public static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(RollingDownInTheDeep.id("main"));
 
     public static final KeyMapping TOGGLE_ENABLED = new KeyMapping(
         "key.rolling_down_in_the_deep.toggle_enabled",
-        GLFW.GLFW_KEY_O,
+        InputConstants.KEY_O,
         CATEGORY
     );
     public static final KeyMapping OPEN_CONFIG = new KeyMapping(

@@ -1,7 +1,7 @@
 package dev.enjarai.rollingdowninthedeep.mixin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+import org.joml.Matrix4f;
 import net.minecraft.client.renderer.entity.player.AvatarRenderer;
 import net.minecraft.client.renderer.entity.state.AvatarRenderState;
 import nl.enjarai.doabarrelroll.api.RollRenderState;
@@ -21,7 +21,7 @@ public abstract class AvatarRendererMixin {
             AvatarRenderState state, PoseStack poseStack, float bodyRot, float entityScale, CallbackInfo ci
     ) {
         if (state.isVisuallySwimming) {
-            poseStack.mulPose(Axis.YP.rotationDegrees(((RollRenderState) (Object) state).doABarrelRoll$getRoll()));
+            poseStack.mulPose(new Matrix4f().rotateY((float) Math.toRadians(((RollRenderState) (Object) state).doABarrelRoll$getRoll())));
         }
     }
 }

@@ -21,3 +21,9 @@ echo; echo "### AvatarRenderState swimming field"; jp net.minecraft.client.rende
 echo; echo "### Player ledge-related methods"; jp net.minecraft.world.entity.player.Player | grep -i -E 'BackOff|Edge|StayingOn|clipAt'
 echo; echo "### Player.maybeBackOffFromEdge body (calls)"; body net.minecraft.world.entity.player.Player 'maybeBackOffFromEdge' 'invoke'
 echo; echo "### Entity.isStayingOnGroundSurface"; jp net.minecraft.world.entity.Entity | grep -E 'isStayingOnGroundSurface|isShiftKeyDown'
+echo; echo "### Util.OS members"; jp 'net.minecraft.Util$OS' | grep -E 'open|Uri|Url|URI'
+echo; echo "### Util.getPlatform"; jp net.minecraft.Util | grep -E 'getPlatform'
+echo; echo "### InputConstants key O"; jp com.mojang.blaze3d.platform.InputConstants | grep -E ' KEY_O;| KEY_O =|UNKNOWN'
+echo; echo "### PoseStack.mulPose"; jp com.mojang.blaze3d.vertex.PoseStack | grep -E 'mulPose'
+echo; echo "### Minecraft screen methods"; jp net.minecraft.client.Minecraft | grep -E 'Screen' | head -10
+echo; echo "### ConfirmLinkScreen"; jp net.minecraft.client.gui.screens.ConfirmLinkScreen | grep -E 'public|static' | head -12
