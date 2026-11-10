@@ -1,0 +1,67 @@
+classpath jars:
+.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-a269f570f8/26.2/minecraft-merged-a269f570f8-26.2.jar
+
+
+### LocalPlayer.aiStep -> goDownInWater
+       733: invokevirtual #1453               // Method goDownInWater:()V
+
+### LocalPlayer.sendIsSprintingIfNeeded -> packet ctor
+        37: invokespecial #498                // Method net/minecraft/network/protocol/game/ServerboundPlayerCommandPacket."<init>":(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/network/protocol/game/ServerboundPlayerCommandPacket$Action;)V
+
+### Entity.updateSwimming -> isSprinting
+         9: invokevirtual #2368               // Method isSprinting:()Z
+        42: invokevirtual #2368               // Method isSprinting:()Z
+
+### LivingEntity.aiStep -> jumpInLiquid
+       394: invokevirtual #4219               // Method jumpInLiquid:(Lnet/minecraft/tags/TagKey;)V
+       428: invokevirtual #4219               // Method jumpInLiquid:(Lnet/minecraft/tags/TagKey;)V
+
+### Player.travel -> setDeltaMovement
+       118: invokevirtual #1646               // Method setDeltaMovement:(Lnet/minecraft/world/phys/Vec3;)V
+       160: invokevirtual #1646               // Method setDeltaMovement:(Lnet/minecraft/world/phys/Vec3;)V
+
+### LivingEntity members used by @Shadow / @Inject
+  public boolean hasEffect(net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect>);
+  public boolean onClimbable();
+  public double getAttributeValue(net.minecraft.core.Holder<net.minecraft.world.entity.ai.attributes.Attribute>);
+  protected float getWaterSlowDown();
+  protected void travelInWater(net.minecraft.world.phys.Vec3, double, boolean, double);
+  private void jumpOutOfFluid(double);
+  public float getSpeed();
+
+### LocalPlayer.isUnderWater
+  public boolean isUnderWater();
+
+### AvatarRenderer.setupRotations
+  protected void setupRotations(net.minecraft.client.renderer.entity.state.AvatarRenderState, com.mojang.blaze3d.vertex.PoseStack, float, float);
+  protected void setupRotations(net.minecraft.client.renderer.entity.state.LivingEntityRenderState, com.mojang.blaze3d.vertex.PoseStack, float, float);
+
+### AvatarRenderState swimming field
+
+### Player ledge-related methods
+  protected boolean isStayingOnGroundSurface();
+  protected net.minecraft.world.phys.Vec3 maybeBackOffFromEdge(net.minecraft.world.phys.Vec3, net.minecraft.world.entity.MoverType);
+        39: invokevirtual #1360               // Method isStayingOnGroundSurface:()Z
+
+### Player.maybeBackOffFromEdge body (calls)
+         1: invokevirtual #1343               // Method maxUpStep:()F
+        39: invokevirtual #1360               // Method isStayingOnGroundSurface:()Z
+        47: invokevirtual #1363               // Method isAboveGround:(F)Z
+        74: invokestatic  #1375               // Method java/lang/Math.signum:(D)D
+        85: invokestatic  #1375               // Method java/lang/Math.signum:(D)D
+       107: invokevirtual #1379               // Method canFallAtLeast:(DDD)Z
+       115: invokestatic  #1383               // Method java/lang/Math.abs:(D)D
+       154: invokevirtual #1379               // Method canFallAtLeast:(DDD)Z
+       162: invokestatic  #1383               // Method java/lang/Math.abs:(D)D
+       209: invokevirtual #1379               // Method canFallAtLeast:(DDD)Z
+       217: invokestatic  #1383               // Method java/lang/Math.abs:(D)D
+       242: invokestatic  #1383               // Method java/lang/Math.abs:(D)D
+       280: invokespecial #1386               // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+
+### Entity.isStayingOnGroundSurface
+         1: invokevirtual #3361               // Method isShiftKeyDown:()Z
+  public boolean isShiftKeyDown();
+         1: invokevirtual #3361               // Method isShiftKeyDown:()Z
+         1: invokevirtual #3361               // Method isShiftKeyDown:()Z
+         1: invokevirtual #3361               // Method isShiftKeyDown:()Z
+         1: invokevirtual #3361               // Method isShiftKeyDown:()Z
