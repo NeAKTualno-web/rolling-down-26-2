@@ -1,0 +1,197 @@
+classpath jars:
+.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-afdd2d0ff8/26.3/minecraft-merged-afdd2d0ff8-26.3.jar
+
+
+### LocalPlayer.aiStep -> goDownInWater
+       744: invokevirtual #1458               // Method goDownInWater:()V
+
+### LocalPlayer.sendIsSprintingIfNeeded -> packet ctor
+        37: invokespecial #538                // Method net/minecraft/network/protocol/game/ServerboundPlayerCommandPacket."<init>":(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/network/protocol/game/ServerboundPlayerCommandPacket$Action;)V
+
+### Entity.updateSwimming -> isSprinting
+         9: invokevirtual #2432               // Method isSprinting:()Z
+        42: invokevirtual #2432               // Method isSprinting:()Z
+
+### LivingEntity.aiStep -> jumpInLiquid
+       384: invokevirtual #4226               // Method jumpInLiquid:(Lnet/minecraft/tags/TagKey;)V
+       418: invokevirtual #4226               // Method jumpInLiquid:(Lnet/minecraft/tags/TagKey;)V
+
+### Player.travel -> setDeltaMovement
+       118: invokevirtual #1636               // Method setDeltaMovement:(Lnet/minecraft/world/phys/Vec3;)V
+       160: invokevirtual #1636               // Method setDeltaMovement:(Lnet/minecraft/world/phys/Vec3;)V
+
+### LivingEntity members used by @Shadow / @Inject
+  public boolean hasEffect(net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect>);
+  public boolean onClimbable();
+  public double getAttributeValue(net.minecraft.core.Holder<net.minecraft.world.entity.ai.attributes.Attribute>);
+  protected float getWaterSlowDown();
+  protected void travelInWater(net.minecraft.world.phys.Vec3, double, boolean, double);
+  private void jumpOutOfFluid(double);
+  public float getSpeed();
+
+### LocalPlayer.isUnderWater
+  public boolean isUnderWater();
+
+### AvatarRenderer.setupRotations
+  protected void setupRotations(net.minecraft.client.renderer.entity.state.AvatarRenderState, com.mojang.blaze3d.vertex.PoseStack, float, float);
+  protected void setupRotations(net.minecraft.client.renderer.entity.state.LivingEntityRenderState, com.mojang.blaze3d.vertex.PoseStack, float, float);
+
+### AvatarRenderState swimming field
+
+### Player ledge-related methods
+  protected boolean isStayingOnGroundSurface();
+  protected net.minecraft.world.phys.Vec3 maybeBackOffFromEdge(net.minecraft.world.phys.Vec3, net.minecraft.world.entity.MoverType);
+        39: invokevirtual #1351               // Method isStayingOnGroundSurface:()Z
+
+### Player.maybeBackOffFromEdge body (calls)
+         1: invokevirtual #1334               // Method maxUpStep:()F
+        39: invokevirtual #1351               // Method isStayingOnGroundSurface:()Z
+        47: invokevirtual #1354               // Method isAboveGround:(F)Z
+        74: invokestatic  #1366               // Method java/lang/Math.signum:(D)D
+        85: invokestatic  #1366               // Method java/lang/Math.signum:(D)D
+       107: invokevirtual #1370               // Method canFallAtLeast:(DDD)Z
+       115: invokestatic  #1374               // Method java/lang/Math.abs:(D)D
+       154: invokevirtual #1370               // Method canFallAtLeast:(DDD)Z
+       162: invokestatic  #1374               // Method java/lang/Math.abs:(D)D
+       209: invokevirtual #1370               // Method canFallAtLeast:(DDD)Z
+       217: invokestatic  #1374               // Method java/lang/Math.abs:(D)D
+       242: invokestatic  #1374               // Method java/lang/Math.abs:(D)D
+       280: invokespecial #1377               // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+
+### Entity.isStayingOnGroundSurface
+         1: invokevirtual #3452               // Method isShiftKeyDown:()Z
+  public boolean isShiftKeyDown();
+         1: invokevirtual #3452               // Method isShiftKeyDown:()Z
+         1: invokevirtual #3452               // Method isShiftKeyDown:()Z
+         1: invokevirtual #3452               // Method isShiftKeyDown:()Z
+         1: invokevirtual #3452               // Method isShiftKeyDown:()Z
+
+### Util.OS members
+
+### Util.getPlatform
+
+### InputConstants key O
+  public static final int KEY_O;
+  public static final com.mojang.blaze3d.platform.InputConstants$Key UNKNOWN;
+        13: putstatic     #494                // Field UNKNOWN:Lcom/mojang/blaze3d/platform/InputConstants$Key;
+
+### PoseStack.mulPose
+  public void mulPose(org.joml.Matrix4fc);
+         5: invokevirtual #129                // Method com/mojang/blaze3d/vertex/PoseStack$Pose.mulPose:(Lorg/joml/Matrix4fc;)V
+  public void mulPose(com.mojang.math.Transformation);
+         5: invokevirtual #133                // Method com/mojang/blaze3d/vertex/PoseStack$Pose.mulPose:(Lcom/mojang/math/Transformation;)V
+
+### Minecraft screen methods
+  public final net.minecraft.client.gui.components.debug.DebugScreenEntryList debugEntries;
+       582: new           #770                // class net/minecraft/client/gui/components/debug/DebugScreenEntryList
+       594: invokespecial #773                // Method net/minecraft/client/gui/components/debug/DebugScreenEntryList."<init>":(Ljava/io/File;Lcom/mojang/datafixers/DataFixer;)V
+       597: putfield      #775                // Field debugEntries:Lnet/minecraft/client/gui/components/debug/DebugScreenEntryList;
+      3013: invokestatic  #1682               // Method net/minecraft/client/gui/screens/TitleScreen.registerTextures:(Lnet/minecraft/client/renderer/texture/TextureManager;)V
+      3049: new           #1693               // class net/minecraft/client/gui/screens/GenericMessageScreen
+      3059: invokespecial #1704               // Method net/minecraft/client/gui/screens/GenericMessageScreen."<init>":(Lnet/minecraft/network/chat/Component;)V
+      3062: invokevirtual #1708               // Method net/minecraft/client/gui/Gui.setScreen:(Lnet/minecraft/client/gui/screens/Screen;)V
+         5: invokevirtual #1936               // Method net/minecraft/client/gui/Gui.buildInitialScreens:(Lnet/minecraft/client/GameLoadCookie;)Ljava/lang/Runnable;
+        26: invokevirtual #2146               // Method disconnectWithProgressScreen:()V
+grep: write error: Broken pipe
+
+### ConfirmLinkScreen
+public class net.minecraft.client.gui.screens.ConfirmLinkScreen extends net.minecraft.client.gui.screens.ConfirmScreen {
+  private static final net.minecraft.network.chat.Component WARNING_TEXT;
+  private static final int BUTTON_WIDTH;
+  public net.minecraft.client.gui.screens.ConfirmLinkScreen(it.unimi.dsi.fastutil.booleans.BooleanConsumer, java.net.URI, boolean);
+         3: invokestatic  #35                 // Method confirmMessage:(Z)Lnet/minecraft/network/chat/MutableComponent;
+        10: invokestatic  #47                 // InterfaceMethod net/minecraft/network/chat/Component.literal:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+        18: getstatic     #52                 // Field net/minecraft/network/chat/CommonComponents.GUI_CANCEL:Lnet/minecraft/network/chat/Component;
+        24: getstatic     #59                 // Field net/minecraft/network/chat/CommonComponents.GUI_NO:Lnet/minecraft/network/chat/Component;
+  public net.minecraft.client.gui.screens.ConfirmLinkScreen(it.unimi.dsi.fastutil.booleans.BooleanConsumer, net.minecraft.network.chat.Component, java.net.URI, boolean);
+         9: invokestatic  #70                 // Method confirmMessage:(ZLjava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+        18: getstatic     #52                 // Field net/minecraft/network/chat/CommonComponents.GUI_CANCEL:Lnet/minecraft/network/chat/Component;
+        24: getstatic     #59                 // Field net/minecraft/network/chat/CommonComponents.GUI_NO:Lnet/minecraft/network/chat/Component;
+grep: write error: Broken pipe
+
+### net.minecraft.util.Util OS
+Compiled from "Util.java"
+public final class net.minecraft.util.Util$OS extends java.lang.Enum<net.minecraft.util.Util$OS> {
+  public static final net.minecraft.util.Util$OS LINUX;
+
+  public static final net.minecraft.util.Util$OS SOLARIS;
+
+  public static final net.minecraft.util.Util$OS WINDOWS;
+
+  public static final net.minecraft.util.Util$OS OSX;
+
+  public static final net.minecraft.util.Util$OS UNKNOWN;
+
+  private final java.lang.String telemetryName;
+
+  private static final net.minecraft.util.Util$OS[] $VALUES;
+
+  public static net.minecraft.util.Util$OS[] values();
+    Code:
+         0: getstatic     #19                 // Field $VALUES:[Lnet/minecraft/util/Util$OS;
+         3: invokevirtual #23                 // Method "[Lnet/minecraft/util/Util$OS;".clone:()Ljava/lang/Object;
+         6: checkcast     #24                 // class "[Lnet/minecraft/util/Util$OS;"
+         9: areturn
+
+  public static net.minecraft.util.Util$OS valueOf(java.lang.String);
+    Code:
+         0: ldc           #1                  // class net/minecraft/util/Util$OS
+         2: aload_0
+         3: invokestatic  #28                 // Method java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+         6: checkcast     #1                  // class net/minecraft/util/Util$OS
+         9: areturn
+
+  private net.minecraft.util.Util$OS(java.lang.String);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: invokespecial #34                 // Method java/lang/Enum."<init>":(Ljava/lang/String;I)V
+         6: aload_0
+         7: aload_3
+         8: putfield      #38                 // Field telemetryName:Ljava/lang/String;
+
+### ConfirmLinkScreen statics
+  private static final net.minecraft.network.chat.Component WARNING_TEXT;
+  private static final int BUTTON_WIDTH;
+        18: getstatic     #52                 // Field net/minecraft/network/chat/CommonComponents.GUI_CANCEL:Lnet/minecraft/network/chat/Component;
+        24: getstatic     #59                 // Field net/minecraft/network/chat/CommonComponents.GUI_NO:Lnet/minecraft/network/chat/Component;
+        18: getstatic     #52                 // Field net/minecraft/network/chat/CommonComponents.GUI_CANCEL:Lnet/minecraft/network/chat/Component;
+        24: getstatic     #59                 // Field net/minecraft/network/chat/CommonComponents.GUI_NO:Lnet/minecraft/network/chat/Component;
+        13: getstatic     #78                 // Field net/minecraft/network/chat/CommonComponents.GUI_OPEN_IN_BROWSER:Lnet/minecraft/network/chat/Component;
+        19: getstatic     #81                 // Field net/minecraft/network/chat/CommonComponents.GUI_YES:Lnet/minecraft/network/chat/Component;
+  protected static net.minecraft.network.chat.MutableComponent confirmMessage(boolean, java.lang.String);
+         4: getstatic     #93                 // Field net/minecraft/network/chat/CommonComponents.SPACE:Lnet/minecraft/network/chat/Component;
+
+### classes named *OS* or opening URIs
+net/minecraft/util/Util$1.class
+net/minecraft/util/Util$10.class
+net/minecraft/util/Util$11.class
+net/minecraft/util/Util$2.class
+net/minecraft/util/Util$3.class
+net/minecraft/util/Util$4.class
+net/minecraft/util/Util$6.class
+net/minecraft/util/Util$5.class
+net/minecraft/util/Util$7.class
+net/minecraft/util/Util$8.class
+
+### classes containing openUri/openUrl
+com/mojang/blaze3d/Blaze3D.class
+com/mojang/realmsclient/RealmsMainScreen.class
+com/mojang/realmsclient/dto/RealmsNotification$InfoPopup.class
+com/mojang/realmsclient/gui/screens/RealmsTermsScreen.class
+net/minecraft/client/gui/Gui.class
+net/minecraft/client/gui/screens/BanNoticeScreens.class
+net/minecraft/client/gui/screens/ConfirmLinkScreen.class
+net/minecraft/client/gui/screens/DeathScreen.class
+net/minecraft/client/gui/screens/NoticeWithLinkScreen.class
+net/minecraft/client/gui/screens/PrivacyConfirmLinkScreen.class
+net/minecraft/client/gui/screens/Screen.class
+
+### openUri signatures
+-- net.minecraft.client.gui.Gui
+-- net.minecraft.client.gui.screens.Screen
+-- com.mojang.blaze3d.Blaze3D
+  public static void openUri(java.net.URI);
+  private static void lambda$openUri$0(java.net.URI);
+-- net.minecraft.client.gui.screens.ConfirmLinkScreen
